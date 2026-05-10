@@ -1,47 +1,32 @@
-# RachaAí Blazor
+# ihcux-racha-ai-blazor
 
-Aplicação desenvolvida em Blazor para a disciplina de Interação Humano-Computador e UX, com o objetivo de transformar o wireframe criado no Miro em uma interface funcional em C#/.NET.
+Repositório dedicado à Atividade Prática: Do Wireframe ao Código com Blazor, desenvolvida para a disciplina de Interação Humano Computador e UX do Centro Universitário UNA.
 
-## Integrantes
+## 📌 Sobre o Projeto
+Este projeto consiste na implementação de uma nova página estática em Blazor que representa o Dashboard Principal do aplicativo de finanças coletivas **RachaAí**. O foco principal da atividade foi aplicar conceitos de **Hierarquia Visual** e **Componentização**, garantindo a heurística de "Visibilidade do Status do Sistema".
 
-- Kaio Moreira
-- Icaro ferreira
+## 💡 Respostas da Atividade
 
-## Problema Focado
+### Implementação Blazor
+**Como a hierarquia visual do Miro foi transposta para os componentes Blazor?**
+A transposição foi realizada utilizando o sistema de Grid do Bootstrap (`row` e `col`) para estruturar a página de forma responsiva. Os elementos de maior importância da interface (Total a Receber, Total a Pagar e Saldo Geral) foram destacados em *Cards de Resumo* no topo da tela. 
 
-O aplicativo RachaAí foi projetado para ajudar grupos de pessoas a dividir despesas coletivas, como contas de república, churrascos, viagens e eventos. A principal dor priorizada foi permitir que o usuário visualize rapidamente quanto tem a receber, quanto precisa pagar e qual é o seu saldo geral.
+Para atender à heurística de visibilidade do status, utilizei cores semânticas (`text-success` para valores a receber e `text-danger` para dívidas), garantindo que o usuário identifique instantaneamente se está no azul ou no vermelho. A listagem detalhada foi organizada logo abaixo, respeitando o fluxo natural de leitura, com um botão de ação (FAB) posicionado estrategicamente e estilizado para garantir *affordance*.
 
-## Justificativa de Design
+### Dificuldade Técnica
+**Qual foi o maior desafio ao componentizar o GrupoCard?**
+O maior desafio ao componentizar o `GrupoCard` foi entender e configurar corretamente o escopo e o fluxo de dados entre a página principal (`Dashboard.razor`) e o componente filho (`GrupoCard.razor`). 
 
-A interface foi organizada com base em princípios de IHC e UX:
+A passagem do objeto de dados exigiu o uso do atributo `[Parameter]`, mas a principal barreira técnica foi o erro de referência de renderização (falta da diretiva `@using` apontando para o namespace correto do componente). O Blazor não conseguia encontrar o componente até que o namespace fosse explicitamente declarado no `_Imports.razor` ou na própria página. Após superar esse detalhe de configuração, o encapsulamento das regras de UI tornou a manutenção do código consideravelmente mais simples.
 
-- Hierarquia Visual: os três cards no topo destacam as informações financeiras mais importantes.
-- Visibilidade do Status do Sistema: cores verdes indicam valores a receber e cores vermelhas indicam valores a pagar.
-- Consistência: utilização do Bootstrap para manter padrão visual em cards, badges e botões.
-- Affordance: o botão "Adicionar Novo Gasto" possui aparência clara de elemento clicável.
-- Componentização: cada grupo é exibido por meio do componente reutilizável `GrupoCard.razor`.
+## 🚀 Desafio Extra Implementado
+Foi adicionado um campo de busca na interface (`<input type="text">`) que filtra a lista de grupos dinamicamente. A funcionalidade foi construída utilizando o recurso de *two-way data binding* do Blazor através do `@bind-value:event="oninput"`. Isso permite que a lista de grupos renderizada na tela seja atualizada em tempo real conforme o usuário digita o nome ou a categoria desejada.
 
-## Fluxo do Usuário
+---
 
-1. O usuário acessa o dashboard.
-2. Visualiza os valores de Total a Receber, Total a Pagar e Saldo Geral.
-3. Consulta a lista de grupos ativos.
-4. Identifica rapidamente se está no vermelho ou no azul por meio das cores.
-5. Clica no botão "Adicionar Novo Gasto" para registrar uma nova despesa.
-
-## Implementação Blazor
-
-O protótipo criado no Miro foi convertido em componentes no Blazor da seguinte forma:
-
-- `Models/Grupo.cs`: define a estrutura de dados dos grupos.
-- `Shared/GrupoCard.razor`: componente reutilizável para exibir cada grupo.
-- `Pages/Dashboard.razor`: página principal com cards de resumo, listagem de grupos e botão de ação.
-
-A página utiliza o sistema de Grid do Bootstrap (`row` e `col`) para garantir responsividade.
-
-## Dificuldade Técnica
-
-O principal desafio foi componentizar o `GrupoCard`, permitindo que o componente recebesse um objeto `Grupo` como parâmetro e aplicasse estilos diferentes de acordo com a propriedade `NoVermelho`.
-
-
-`ihcux-racha-ai-blazor`
+## 👨‍💻 Autores
+* *Icaro Ferreira de Oliveira*
+* *Kaio Robertt Moreira Abreu*
+## 👨‍💻 Autores
+* **Icaro Ferreira de Oliveira**
+* **Kaio Robertt Moreira Abreu**
