@@ -25,8 +25,5 @@ Foi adicionado um campo de busca na interface (`<input type="text">`) que filtra
 ---
 
 ## 👨‍💻 Autores
-* *Icaro Ferreira de Oliveira*
-* *Kaio Robertt Moreira Abreu*
-## 👨‍💻 Autores
 * **Icaro Ferreira de Oliveira**
 * **Kaio Robertt Moreira Abreu**
