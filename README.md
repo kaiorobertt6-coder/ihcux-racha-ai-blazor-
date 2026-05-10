@@ -43,16 +43,5 @@ A página utiliza o sistema de Grid do Bootstrap (`row` e `col`) para garantir r
 
 O principal desafio foi componentizar o `GrupoCard`, permitindo que o componente recebesse um objeto `Grupo` como parâmetro e aplicasse estilos diferentes de acordo com a propriedade `NoVermelho`.
 
-## Tecnologias Utilizadas
-
-- C#
-- .NET
-- Blazor
-- Bootstrap
-- GitHub
-
-## Repositório
-
-Nome do repositório:
 
 `ihcux-racha-ai-blazor`
